@@ -164,7 +164,6 @@ class Client():
         if not self.peers[self.name][2]:  # online boolean set to false
             print(">>> [You are Offline. Bye.]")
         self.printing = False
-        #print(self.printing)
 
     def input(self):
         while not self.done:

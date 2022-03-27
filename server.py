@@ -58,7 +58,7 @@ class Server(object):
 
             msg_li = ["ACK_REQ"]
             msg = str.encode(json.dumps(msg_li))
-            self.sock.sendto(msg, address)
+            self.sock.sendto(msg, (target_ip, target_port))
             self.pending_ack[target_name] = True
             time.sleep(.5)
             if self.pending_ack[target_name]:  # aka user is offline
@@ -125,7 +125,7 @@ class Server(object):
                 if x_online:
                     if self.pending_ack[x]:
                         print("did not receive gc ack from", x)
-                        #self.save_msgs([code, sender, x, False, text, address])
+                        self.save_msgs([code, sender, x, False, text, address])
 
     def distrbute_gc_message(self, received_data):
         code, sender, text, address = received_data
@@ -165,7 +165,7 @@ class Server(object):
         elif recieved_data[0].upper() == "SEND_ALL":
             self.group_chat(recieved_data)
         elif recieved_data[0].upper() == "ACK_GC_MSG":
-            print("recieved ack from", recieved_data[1])
+            print("recieved ack from 1", recieved_data[1])
             self.pending_ack[recieved_data[1]] = False
         elif recieved_data[0].upper() == "ACK_REQ_RSP":
             print("recieved ack from", recieved_data[1])

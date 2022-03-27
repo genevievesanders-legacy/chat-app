@@ -44,12 +44,11 @@ def main():
         if args.server:
             port = args.server[0]
             if valid_port(port):
-                print("valid port, initializing server")
+                #print("valid port, initializing server")
+                print(">>> [Server initializing...]")
                 Server(int(port)).initiate_server()
-                print("finished initializing server")
         elif args.client:
             name, server_ip, server_port, client_port = args.client
-            #print("name:{}, server_ip:{}, server_port:{}, client_port:{}").format(name, server_ip, serv)
             if valid_ip(server_ip) and valid_port(server_port) and valid_port(client_port):
                 print("valid input")
                 Client(name, server_ip, int(server_port), int(client_port)).start()
