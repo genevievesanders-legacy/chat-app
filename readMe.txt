@@ -8,7 +8,7 @@ The following application (consisting of main ChatApp.py, client.py, and server.
 
 To initialize the underlying server, one uses command $ python3 ChatApp.py -s [port number]. For example, in the example photo server.png, the  port number chosen was 1024. If given a viable port number, the script will print a statement indicating the server is being initialize; otherwise, it will ask for a viable port number.
 
-Now, let’s create 3 users - @gs2908, @milliethebear, and @funuser3. If we create users in this order, we will be notified that the client table is updated with each subsequent registered user, and each user will receive an opening message of
+Now, let’s create 3 users (each in their own terminal window) - @gs2908, @milliethebear, and @funuser3. If we create users in this order, we will be notified that the client table is updated with each subsequent registered user, and each user will receive an opening message of
 	“>>> [Welcome @[USER], You are registered.]”
 At this point, we see user @gs2908 call function
 	“>>> peers”
